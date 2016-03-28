@@ -1,0 +1,46 @@
+@CHARSET "ISO-8859-1";
+
+#gso_table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    height: 50%;
+    
+}
+#menu_settlement{
+	padding-top: 12px;
+    padding-bottom: 12px;
+    height: 10px;
+	
+}
+
+#gso_table td, #gso_table th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+    
+}
+
+#gso_table tr:nth-child(even){background-color: #f2f2f2}
+
+#gso_table tr:hover {background-color: #ddd;}
+
+#gso_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#gso_table tr:hover {background-color: #ddd;}
+
+#exportable
+{
+	overflow-x:auto;
+	overflow-y:auto;
+}
+
+tr.spaceUnder > td
+{
+  padding-bottom: 1em;
+}
