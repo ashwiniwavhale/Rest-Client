@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>REST Client</title>
+<!-- ----------------------------------------------------------------------------------------- -->
+<!-- Local CSS Files -->
+<link rel="stylesheet" href="css/styles.css">
+<!-- AngularJs -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<!-- BootStrap CSS-->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- BootStrap Js -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Jquery Js-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!-- xlx js -->
+<script src="http://alasql.org/console/alasql.min.js"></script>
+<!-- xlx core -->
+<script src="http://alasql.org/console/xlsx.core.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+<!--  fixed header -->
+<script src="https://cdn.rawgit.com/cornflourblue/angu-fixed-header-table/master/angu-fixed-header-table.js"></script>
+
+<!-- ---------------------NG - TABLE --------------------------------------------------------- -->
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/esvit/ng-table/v1.0.0/dist/ng-table.min.css">
+<script src="https://cdn.rawgit.com/esvit/ng-table/v1.0.0/dist/ng-table.js"></script>
+
+
+<!-- ----------------------------------------------------------------------------------------- -->
+<!-- Add your own Script -->
+<script src = "js1/app.js"></script>
+</head>
+<!-- ----------------------------------------------------------------------------------------- -->
+<body>
+<div class ="container" ng-app="myApp" ng-controller="appCtrl">
+<!-- ------------------	------		NavBar---------------------------------------------------------- -->
+		<nav class="navbar navbar-inverse">
+  		<div class="container">
+    			<h2 style ="color: white;">Report Center</h2><hr>
+    			<div class="navbar-header">
+      			<a class="navbar-brand" href="http://mysource.bnymellon.net/home/index.html " target="_blank">BNY Mellon</a>
+    			</div>
+    			<!-- ------------------  Home TAB  ----------------------- -->
+    			<ul class="nav navbar-nav">
+    			<!-- --------------------------------- -->
+      			<li class="active"><a href="#">Home</a></li>
+      			
+      			<!-- ------------------  Data Mart TAB With DropDown  ----------------------- -->
+      			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Data Marts<span class="caret"></span></a>        		
+        		<ul class="dropdown-menu">
+          		<li><a href="#" ng-click="all()" onclick="document.getElementById('export').style.display='block'; document.getElementById('header').style.display='table-row';document.getElementById('search').style.display='table-row'" >GSO</a></li>
+          		<li><a href="#">BDS</a></li>
+          		<li><a href="#">TSO</a></li>
+           		<li><a href="#">FTO</a></li>
+        		</ul>
+      			</li> 
+      			
+      			
+      			
+      			</ul>
+      			
+      			</li>
+      			
+      			 <!-- -------------------------------------- -->  
+    			</ul>
+    			<!-- ------------------Sign In And Sign Out TAB ----------------------- -->
+    			<ul class="nav navbar-nav navbar-right">
+      			<li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+      			<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login&nbsp;&nbsp;&nbsp;&nbsp;</a></li>&nbsp;
+    			</ul>
+  
+  		</div>
+		</nav>
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+
+
+<br>
+<hr>
+<center><h2>PCS Dashbord</h2></center>
+
+<hr>
+<div id="exportable" style= "height:500px  ; overflow-x:auto ; overflow-y:auto ;width:100%;">
+	
+	<center>
+	
+<!-- ------------------------Report TAB with DropdDown--------------------------------------------------- -->
+
+<ul class="nav nav-tabs nav-pills nav-justified">
+  <li class="active"><a data-toggle="tab" href="#pay">Payment </a></li>
+  <li><a data-toggle="tab" href="#clearance">Clearance </a></li>
+  <li><a data-toggle="tab" href="#settlement">Settlement </a></li>
+  <li><a data-toggle="tab" href="#BDS">Broker Dealer Services </a></li>
+  <li><a data-toggle="tab" href="#FMU">FMU Exposures</a></li>
+  <li><a data-toggle="tab" href="#nostro">Nostro Exposures</a></li>
+ 
+</ul>
+
+<!-- <div class="tab-content"> -->
+<!--   <div id="pay" class="tab-pane fade in active"> -->
+  
+<!--   <br> -->
+<!--   <br> -->
+ 
+  
+   
+<!--   </div>	 -->
+<!--   <div id="clearance" class="tab-pane fade"> -->
+<!--     <h3>Menu 1</h3> -->
+<!--     <p>Some content in menu 1.</p> -->
+<!--   </div> -->
+<!--   <div id="settlement" class="tab-pane fade"> -->
+<!--     <br><br> -->
+    
+<!--     <table id="menu_settlement"> -->
+<!--     <tr> -->
+<!--     <td width="500px">Settlements By </td> -->
+<!--     <td>Reports</td> -->
+    
+<!--     </tr> -->
+   
+<!--    <tr> -->
+<!--    <td width="200px"></td> -->
+<!--    <td><a href="http://localhost:49348/MyReports/servlets/viewer?jr_report_uri=Settlement Activity by Legal Entity and Client Report.jrxml&jss_context=6438b74a-11a7-4d21-9e18-d2b593ee8b08&jr_async=true" > -->
+<!--    Legal Entity And Line Of Business Report</a></td>  -->
+<!--    </tr> -->
+    
+<!--     <tr> -->
+<!--     <td width="200px"> </td> -->
+<!--     <td><a href="http://localhost:49325/HelloJasperReport/servlets/viewer?jr_report_uri=Custody_Holdings.jrxml&jss_context=96f61901-fb49-4501-b011-54f4ce9202e6&jr_async=true" > -->
+<!--    Custody Holdings</a></td> -->
+<!--     </tr> -->
+    
+<!--     <tr> -->
+<!--     <td width="200px"> </td> -->
+<!--     <td><a href="#" > -->
+<!--    Counterparty Report</a></td> -->
+<!--     </tr> -->
+    
+<!--     <tr> -->
+<!--     <td width="200px"> </td> -->
+<!--     <td><a href="#" > -->
+<!--   Transaction Detail Report</a></td> -->
+<!--     </tr> -->
+    
+<!--     <tr> -->
+<!--     <td width="200px"> </td> -->
+<!--     <td><a href="#" > -->
+<!--    Legal Entity And Line Of Business</a></td> -->
+<!--     </tr> -->
+<!--     </table> -->
+    	       
+<!--   </div> -->
+<!--   <div id="BDS" class="tab-pane fade"> -->
+<!--     <h3>Menu 2</h3> -->
+<!--     <p>Some content in menu 2.</p> -->
+<!--   </div> -->
+<!--   <div id="FMU" class="tab-pane fade"> -->
+<!--     <h3>Menu 2</h3> -->
+<!--     <p>Some content in menu 2.</p> -->
+<!--   </div> -->
+<!--    <div id="nostro" class="tab-pane fade"> -->
+<!--     <h3>Menu 2</h3> -->
+<!--     <p>Some content in menu 2.</p> -->
+<!--   </div> -->
+<!-- </div> -->
+
+ 
+	
+
+	 <!-- -----------------------------TABLE------------------------------------------------- --> 	
+  	<table ng-table = "table1" show-filter="true" id="gso_table" class="display" cellspacing="0" width="100%">
+  	<tr >
+  	<tr style="display:none"><td>Search By </td> </tr>
+  	
+  	<tr style="display:none " id="search">  	 	
+  	<td><input type="text" ng-model="mle" placeholder="Material Legal Entity"></td>
+  	<td><input type="text" ng-model="me" placeholder="Gso Material Entity"></td>
+  	<td><input type="text" ng-model = "loc" placeholder="Location"></td>
+  	<td><input type="text" ng-model = "cbl" placeholder="Core Business Line"></td>
+  	<td><input type="text" ng-model = "sd" placeholder="Settelment Date"></td>
+	</tr>
+	</tr>
+	<hr>
+	
+
+  	
+  	<tr style="display: none" id="header">
+  	<th>Material Legal Enity</th>
+  	<th>Material Legal Entity Description</th>
+  	<th>Location</th>
+  	<th>Core Business Line</th>
+  	<th>Settlement Date</th>
+  
+ </tr>
+  	
+<!--     <th ng-repeat ="(key, val) in gso[0]">{{key}}</th> -->
+
+
+  	
+  	
+  	<tbody>
+  	
+<!-- 	<tr ng-repeat ="x in gso | filter:{contr_LEGAL_ENTITY:mle,lef_NAME:me,so1_FINAL_LOCATION:loc,core_LINE_OF_BUSINESS:cbl,so1_ACT_SETTLE_DATE:sd}" > -->
+	
+	
+	<tr ng-repeat ="x in (filterdItems = (gso| filter:{contr_LEGAL_ENTITY:mle,
+	lef_NAME:me,
+	so1_FINAL_LOCATION:loc,
+	core_LINE_OF_BUSINESS:cbl,
+	so1_ACT_SETTLE_DATE:sd}))" >
+	
+<!-- 	<td>{{filterdItems}}</td> -->
+
+	<td>{{x.contr_LEGAL_ENTITY }}</td>
+	<td>{{x.lef_NAME }}</td>
+	<td>{{x.so1_FINAL_LOCATION }}</td>
+	<td>{{x.core_LINE_OF_BUSINESS }}</td>
+	<td>{{x.so1_ACT_SETTLE_DATE }}</td>
+	
+	
+<!-- 	<td>{{x.client_NAME }}</td> -->
+<!-- 	<td>{{x.so1_ISIN_SEC }}</td> -->
+<!-- 	<td>{{x.so1_ISIN_CHK }}</td> -->
+<!-- 	<td>{{x.so1_RECORD_KEY }}</td> -->
+<!-- 	<td>{{x.so1_TRANS_TYPE }}</td> -->
+<!-- 	<td>{{x.so1_REG_CODE_1 }}</td> -->
+<!-- 	<td>{{x.so1_REG_CODE_2 }}</td> -->
+	
+<!-- 	<td>{{x.so1_TRADE_DATE }}</td> -->
+<!-- 	<td>{{x.so1_TRADE_BROKER }}</td> -->
+<!-- 	<td>{{x.so1_CLEAR_BROKER }}</td> -->
+	
+<!-- 	<td>{{x.subissue_TYPE }}</td> -->
+<!-- 	<td>{{x.contr_LEGAL_ENTITY }}</td> -->
+<!-- 	<td>{{x.core_LINE_OF_BUSINESS }}</td> -->
+<!-- 	<td>{{x.so1_DEPOSITORY_NUM_TYPE }}</td> -->
+<!-- 	<td>{{x.so1_SOURCE_LOCATION }}</td> -->
+<!-- 	<td>{{x.so1_CONT_SETTLE_DATE }}</td> -->
+<!-- 	<td>{{x.so1_ACT_SETTLE_DATE }}</td> -->
+<!-- 	<td>{{x.so1_CURR_CODE_OF_STREET }}</td> -->
+<!-- 	<td>{{x.trading_BROKER_DESCRIPTION }}</td> -->
+<!-- 	<td>{{x.clearing_BROKER_DESCRIPTION }}</td> -->
+<!-- 	<td>{{x.so1_ACCT }}</td> -->
+<!-- 	<td>{{x.so1_ISIN }}</td> -->
+	
+<!-- 	<td>{{x.so1_VIA }}</td> -->
+<!-- 	<td>{{x.cusip }}</td> -->
+<!-- 	<td>{{x.sedol }}</td> -->
+<!-- 	<td>{{x.price }}</td> -->
+<!-- 	<td>{{x.acct_NAME }}</td> -->
+<!-- 	<td>{{x.client_ID }}</td> -->
+	
+
+	</tr>
+	</tbody>
+    </table></center>
+    
+ 
+             
+</div>
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+
+  <div class="dropdown">
+    <button id ="export"   style="display:none;" class="btn  dropdown-toggle" type="button" data-toggle="dropdown">Export to
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" align="center">
+      <li><a href="#" ng-click="exportXlsx()">XLSX</a></li>
+      <li><a href="#" ng-click="exportCsv()">CSV</a></li>
+      <li><a href="#" ng-click="exportTxt()">TEXT</a></li>
+    </ul>
+  </div> 
+
+<!-- -----------------------------------END OF MAIN DIV-------------------------------------------------------------------------- -->
+</div>
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+
+<script src = "js1/app.js"></script>
+
+</body>
+</html>
